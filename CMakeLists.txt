@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-# set a default CXX standard for the tools and targets that do not specify them. 
+# set a default CXX standard for the tools and targets that do not specify them.
 # If commented, the latest supported standard for your compiler is automatically set.
 set(CMAKE_CXX_STANDARD 20)
 
@@ -8,7 +8,9 @@ set(CMAKE_CXX_STANDARD 20)
 # This means that all analysis (sanitizers, static analysis)
 # is enabled and all warnings are treated as errors
 # if you want to switch this behavior, change TRUE to FALSE
-set(ENABLE_DEVELOPER_MODE TRUE CACHE BOOL "Enable 'developer mode'")
+set(ENABLE_DEVELOPER_MODE
+    TRUE
+    CACHE BOOL "Enable 'developer mode'")
 
 # Change this to false if you want to disable warnings_as_errors in developer mode
 set(OPT_WARNINGS_AS_ERRORS_DEVELOPER_DEFAULT TRUE)
@@ -84,8 +86,9 @@ target_compile_features(project_options INTERFACE cxx_std_${CMAKE_CXX_STANDARD})
 
 # configure files based on CMake configuration options
 add_subdirectory(configured_files)
-target_include_directories(project_options INTERFACE "${CMAKE_BINARY_DIR}")
-
+target_include_directories(
+  project_options INTERFACE "$<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/${CONFIGURED_DIR}/>"
+                            "$<INSTALL_INTERFACE:./configured_files/${CONFIGURED_DIR}>")
 
 # Adding the src:
 add_subdirectory(src)
@@ -116,4 +119,5 @@ endif()
 set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT intro)
 
 # package the project
-package_project()
+set(PUBLIC_INCLUDES ${CONFIGURED_DIR})
+package_project(PUBLIC_INCLUDES ${PUBLIC_INCLUDES})

@@ -1,3 +1,3 @@
-configure_file("config.hpp.in" "${CMAKE_BINARY_DIR}/configured_files/config.hpp" ESCAPE_QUOTES)
+set(CONFIGURED_DIR "./") # must be a relative path. CMAKE_BINARY_DIR is prefixed automatically by CMake
 
-
+configure_file("config.hpp.in" "${CONFIGURED_DIR}/config.hpp" ESCAPE_QUOTES)
