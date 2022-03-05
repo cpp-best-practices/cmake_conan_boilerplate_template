@@ -23,7 +23,7 @@ jobs:
         run: |
           echo "NEW_ORG=${{ github.repository_owner }}" >> $GITHUB_ENV
           echo "NEW_PROJECT=${{ github.event.repository.name }}" >> $GITHUB_ENV
-          echo "NEW_URL=${{ github.repositoryUrl}}" >> $GITHUB_ENV
+          echo "NEW_URL=${{ github.repositoryUrl }}" >> $GITHUB_ENV
 
       - uses: octokit/request-action@v2.x
         id: get_repo_meta
@@ -51,7 +51,7 @@ jobs:
 
       - name: Print diff after replacement
         run: |
-          # Exclude the README as that is checked seperatly!
+          # Exclude the README as that is checked separately!
           git diff ':!README.md'
           # following should not have any diffs
           diff ${{ env.TEMPLATES_PATH }}/README.md README.md
@@ -68,6 +68,11 @@ jobs:
           # Can we get that from a variabl?
           # Remove this workflow as it has fulfilled its purpose
           rm -rf .github/workflows/template-janitor.yml
+
+      - name: Test simple configuration to make sure nothing broke (default compiler,cmake,developer_mode OFF)
+        run: |
+        cmake -S . -B ./build -DCMAKE_BUILD_TYPE:STRING=DEBUG -DENABLE_DEVELOPER_MODE:BOOL=OFF -DOPT_ENABLE_COVERAGE:BOOL=OFF
+
 
       - uses: EndBug/add-and-commit@v4
         # only commit and push if we are not a template project anymore!
