@@ -1,11 +1,16 @@
 # This workflow should cleanup everything unneeded from the template project
 
 name: Template Janitor
+
 on:
+  pull_request:
+  release:
+    types: [published]
   push:
+    tags:
     branches:
-      - develop 
-      - main # maybe all to run "tests" on every change?
+      - main
+      - develop
 
 env:
   TEMPLATES_PATH: ".github/template"
