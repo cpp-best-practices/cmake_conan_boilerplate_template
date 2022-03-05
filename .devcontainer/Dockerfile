@@ -10,8 +10,15 @@ RUN apt-get update -qq && export DEBIAN_FRONTEND=noninteractive && \
     apt-get install -y --no-install-recommends \
         software-properties-common wget apt-utils file zip \
         openssh-client gpg-agent socat rsync \
-        make ninja-build git \
+        make ninja-build git
+
+# Install python
+RUN apt-get update -qq && export DEBIAN_FRONTEND=noninteractive && \
+    apt-get install -y --no-install-recommends \
         python3 python3-pip
+
+# Install cmake format package
+RUN python3 -m pip install --upgrade pip cmake_format
 
 # Install conan
 RUN python3 -m pip install --upgrade pip setuptools && \
