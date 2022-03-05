@@ -17,8 +17,8 @@ env:
 
 jobs:
 
-  template-cleanup:
-    name: Cleanup after create
+  template-create:
+    name: Create new template from existing template
     runs-on: ubuntu-latest
     steps:
       - name: Fetch Sources
@@ -30,7 +30,7 @@ jobs:
           echo "NEW_PROJECT=${{ github.event.repository.name }}" >> $GITHUB_ENV
           echo "NEW_URL=${{ github.repositoryUrl }}" >> $GITHUB_ENV
           echo "TEMPLATE_NAME=`cat ${{ env.TEMPLATES_PATH }}/template_name`" >> $GITHUB_ENV
-          echo "TEMPLATE_REPOSITORY=`cat ${{ env.TEMPLATES_PATH }}//template_repository`" >> $GITHUB_ENV
+          echo "TEMPLATE_REPOSITORY=`cat ${{ env.TEMPLATES_PATH }}/template_repository`" >> $GITHUB_ENV
 
       - uses: octokit/request-action@v2.x
         id: get_repo_meta
@@ -42,11 +42,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Rename all cpp_starter_project occurrences to current repository and remove this workflow
-      - name: Update template and template-creator scripts to match new template information
+      - name: Update repository to match new template information
         run: |
-          # Update the README to match the new org / repository names 
-          sed -i "s|${{ env.TEMPLATE_NAME }}|${{ github.event.repository.name }}|g" README.md ${{ env.TEMPLATES_PATH }}/template_name ${{ env.TEMPLATES_PATH }}/template_repository
-          sed -i "s|${{ env.TEMPLATE_REPOSITORY }}|${{ github.repository }}|g" README.md ${{ env.TEMPLATES_PATH }}/template_name ${{ env.TEMPLATES_PATH }}/template_repository
+          # Update the README and template files to match the new org / repository names 
+          sed -i "s|${{ env.TEMPLATE_REPOSITORY }}|${{ github.repository }}|g" README.md ${{ env.TEMPLATES_PATH }}/template_repository
+          sed -i "s|${{ env.TEMPLATE_NAME }}|${{ github.event.repository.name }}|g" README.md ${{ env.TEMPLATES_PATH }}/template_name
 
       - name: Print diff after template name replacement
         run: |
