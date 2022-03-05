@@ -70,9 +70,27 @@ jobs:
         run: |
           rm -rf ${{ env.TEMPLATES_PATH }}
 
-          # Can we get that from a variabl?
+          # Can we get that from a variable?
           # Remove this workflow as it has fulfilled its purpose
           rm -rf .github/workflows/template-janitor.yml
+
+      - name: Setup Cpp
+        uses: aminya/setup-cpp@v1
+        with:
+          compiler: gcc
+
+          cmake: true
+          ninja: false
+          conan: true
+          vcpkg: false
+          ccache: false
+          clangtidy: false
+
+          cppcheck: false
+
+          gcovr: false
+          opencppcoverage: false
+
 
       - name: Test simple configuration to make sure nothing broke (default compiler,cmake,developer_mode OFF)
         run: |
