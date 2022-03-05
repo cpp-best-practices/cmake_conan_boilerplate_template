@@ -76,7 +76,7 @@ jobs:
 
       - name: Test simple configuration to make sure nothing broke (default compiler,cmake,developer_mode OFF)
         run: |
-        cmake -S . -B ./build -DCMAKE_BUILD_TYPE:STRING=DEBUG -DENABLE_DEVELOPER_MODE:BOOL=OFF -DOPT_ENABLE_COVERAGE:BOOL=OFF
+          cmake -S . -B ./build -DCMAKE_BUILD_TYPE:STRING=DEBUG -DENABLE_DEVELOPER_MODE:BOOL=OFF -DOPT_ENABLE_COVERAGE:BOOL=OFF
 
 
       - uses: EndBug/add-and-commit@v4
