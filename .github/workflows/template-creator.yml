@@ -74,7 +74,7 @@ jobs:
           cmake -S . -B ./build -DCMAKE_BUILD_TYPE:STRING=DEBUG -DENABLE_DEVELOPER_MODE:BOOL=OFF -DOPT_ENABLE_COVERAGE:BOOL=OFF
 
       - uses: EndBug/add-and-commit@v4
-        # only commit and push if we are a template and 
+        # only commit and push if we are a template and project name has changed
         if: fromJson(steps.get_repo_meta.outputs.data).is_template == true && env.TEMPLATE_NAME != env.NEW_PROJECT
         with:
           author_name: Template Janitor
