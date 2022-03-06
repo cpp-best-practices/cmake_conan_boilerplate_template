@@ -15,7 +15,8 @@ RUN apt-get update -qq && export DEBIAN_FRONTEND=noninteractive && \
     apt-get install -y --no-install-recommends \
         software-properties-common wget apt-utils file zip \
         openssh-client gpg-agent socat rsync \
-        make ninja-build git
+        make ninja-build git \
+        python3 python3-pip
 
 # User-settable versions:
 # This Dockerfile should support gcc-[7, 8, 9, 10, 11] and clang-[10, 11, 12, 13]
@@ -60,11 +61,6 @@ RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/nul
     apt-add-repository -y "deb ${CMAKE_URL} ${CMAKE_PKG} main" && \
     apt-get update -qq && export DEBIAN_FRONTEND=noninteractive && \
     apt-get install -y --no-install-recommends cmake cmake-curses-gui
-
-# Install python
-RUN apt-get update -qq && export DEBIAN_FRONTEND=noninteractive && \
-    apt-get install -y --no-install-recommends \
-        python3 python3-pip
 
 # Install python packages cmake-format conan etc.
 RUN python3 -m pip install --upgrade pip setuptools cmake_format conan && \
