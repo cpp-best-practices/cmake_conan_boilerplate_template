@@ -68,7 +68,7 @@ jobs:
 
       - name: Clean up before commit and push
         run: |
-          rm -rf ${{ env.TEMPLATES_PATH }}
+          rm -r ${{ env.TEMPLATES_PATH }}
 
           # Can we get that from a variable?
           # Remove this workflow as it has fulfilled its purpose
