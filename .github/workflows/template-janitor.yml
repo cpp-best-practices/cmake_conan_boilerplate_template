@@ -73,7 +73,7 @@ jobs:
           # Can we get that from a variable?
           # Remove this workflow as it has fulfilled its purpose
           rm .github/workflows/template-janitor.yml
-          rm -rf .github/workflows/template-creator.yml
+          rm .github/workflows/template-renamer.yml
 
       - name: Setup Cpp
         uses: aminya/setup-cpp@v1
