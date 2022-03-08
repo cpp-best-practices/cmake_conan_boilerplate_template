@@ -58,6 +58,11 @@
                 "CMAKE_C_COMPILER": "cl",
                 "CMAKE_CXX_COMPILER": "cl",
                 "CMAKE_BUILD_TYPE": "Debug"
+            },
+            "vendor": {
+                "jetbrains.com/clion": {
+                    "toolchain": "Visual Studio"
+                }
             }
         },
         {
@@ -73,6 +78,9 @@
             "vendor": {
                 "microsoft.com/VisualStudioSettings/CMake/1.0": {
                     "intelliSenseMode": "windows-clang-x64"
+                },
+                "jetbrains.com/clion": {
+                    "toolchain": "Visual Studio"
                 }
             }
         },
