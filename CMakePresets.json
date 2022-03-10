@@ -135,32 +135,32 @@
             "configurePreset": "windows-msvc"
         },
         {
-        "name": "build-linux-gcc-debug",
-        "displayName": "Debug",
-        "description": "Build gcc debug on linux",
-        "inherits": "build-common-debug",
-        "configurePreset": "linux-gcc"
-    },
-    {
-        "name": "build-linux-gcc-release",
-        "displayName": "Release",
-        "description": "Build gcc release on linux",
-        "inherits": "build-common-release",
-        "configurePreset": "linux-gcc"
-    },
-    {
-        "name": "build-linux-clang-debug",
-        "displayName": "Debug",
-        "description": "Build clang debug on linux",
-        "inherits": "build-common-debug",
-        "configurePreset": "linux-clang"
-    },
-    {
-        "name": "build-linux-clang-release",
-        "displayName": "Release",
-        "description": "Build clang release on linux",
-        "inherits": "build-common-release",
-        "configurePreset": "linux-clang"
+            "name": "build-linux-gcc-debug",
+            "displayName": "Debug",
+            "description": "Build gcc debug on linux",
+            "inherits": "build-common-debug",
+            "configurePreset": "linux-gcc"
+        },
+        {
+            "name": "build-linux-gcc-release",
+            "displayName": "Release",
+            "description": "Build gcc release on linux",
+            "inherits": "build-common-release",
+            "configurePreset": "linux-gcc"
+        },
+        {
+            "name": "build-linux-clang-debug",
+            "displayName": "Debug",
+            "description": "Build clang debug on linux",
+            "inherits": "build-common-debug",
+            "configurePreset": "linux-clang"
+        },
+        {
+            "name": "build-linux-clang-release",
+            "displayName": "Release",
+            "description": "Build clang release on linux",
+            "inherits": "build-common-release",
+            "configurePreset": "linux-clang"
         }
     ],
     "testPresets": [
@@ -177,60 +177,60 @@
             }
         },
         {
-        "name": "test-common-debug",
-        "description": "Test CMake settings that apply to debug configurations",
-        "hidden": true,
-        "inherits": "test-common",
-        "configuration": "Debug"
+            "name": "test-common-debug",
+            "description": "Test CMake settings that apply to debug configurations",
+            "hidden": true,
+            "inherits": "test-common",
+            "configuration": "Debug"
         },
         {
-        "name": "test-common-release",
-        "description": "Test CMake settings that apply to release configurations",
-        "hidden": true,
-        "inherits": "test-common",
-        "configuration": "Release"
+            "name": "test-common-release",
+            "description": "Test CMake settings that apply to release configurations",
+            "hidden": true,
+            "inherits": "test-common",
+            "configuration": "Release"
         },
         {
-        "name": "test-windows-msvc-debug",
-        "displayName": "Debug",
-        "description": "Set Strict rules for windows msvc debug tests",
-        "inherits": "test-common-debug",
-        "configurePreset": "windows-msvc"
+            "name": "test-windows-msvc-debug",
+            "displayName": "Debug",
+            "description": "Set Strict rules for windows msvc debug tests",
+            "inherits": "test-common-debug",
+            "configurePreset": "windows-msvc"
         },
         {
-        "name": "test-windows-msvc-release",
-        "displayName": "Release",
-        "description": "Set Strict rules for windows msvc release tests",
-        "inherits": "test-common-release",
-        "configurePreset": "windows-msvc"
+            "name": "test-windows-msvc-release",
+            "displayName": "Release",
+            "description": "Set Strict rules for windows msvc release tests",
+            "inherits": "test-common-release",
+            "configurePreset": "windows-msvc"
         },
         {
-        "name": "test-linux-gcc-debug",
-        "displayName": "Debug",
-        "description": "Set Strict rules for linux gcc debug tests",
-        "inherits": "test-common-debug",
-        "configurePreset": "linux-gcc"
+            "name": "test-linux-gcc-debug",
+            "displayName": "Debug",
+            "description": "Set Strict rules for linux gcc debug tests",
+            "inherits": "test-common-debug",
+            "configurePreset": "linux-gcc"
         },
         {
-        "name": "test-linux-gcc-release",
-        "displayName": "Release",
-        "description": "Set Strict rules for linux gcc release tests",
-        "inherits": "test-common-release",
-        "configurePreset": "linux-gcc"
+            "name": "test-linux-gcc-release",
+            "displayName": "Release",
+            "description": "Set Strict rules for linux gcc release tests",
+            "inherits": "test-common-release",
+            "configurePreset": "linux-gcc"
         },
         {
-        "name": "test-linux-clang-debug",
-        "displayName": "Debug",
-        "description": "Set Strict rules for linux clang debug tests",
-        "inherits": "test-common-debug",
-        "configurePreset": "linux-clang"
+            "name": "test-linux-clang-debug",
+            "displayName": "Debug",
+            "description": "Set Strict rules for linux clang debug tests",
+            "inherits": "test-common-debug",
+            "configurePreset": "linux-clang"
         },
         {
-        "name": "test-linux-clang-release",
-        "displayName": "Release",
-        "description": "Set Strict rules for linux clang release tests",
-        "inherits": "test-common-release",
-        "configurePreset": "linux-clang"
+            "name": "test-linux-clang-release",
+            "displayName": "Release",
+            "description": "Set Strict rules for linux clang release tests",
+            "inherits": "test-common-release",
+            "configurePreset": "linux-clang"
         }
     ]
 }
