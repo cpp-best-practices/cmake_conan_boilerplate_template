@@ -33,6 +33,15 @@ jobs:
           echo "TEMPLATE_NAME=`cat ${{ env.TEMPLATES_PATH }}/template_name`" >> $GITHUB_ENV
           echo "TEMPLATE_REPOSITORY=`cat ${{ env.TEMPLATES_PATH }}/template_repository`" >> $GITHUB_ENV
 
+      - uses: octokit/request-action@v2.x
+        id: get_repo_meta
+        with:
+          route: GET /repos/{owner}/{repo}
+          owner: ${{ env.NEW_ORG }}
+          repo: ${{ env.NEW_PROJECT }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Setup fake test org/project names if project didn't change
         if: ${{ env.TEMPLATE_NAME }} != ${{ env.NEW_PROJECT }}
         run: |
@@ -43,15 +52,6 @@ jobs:
           echo "TEMPLATE_NAME=`cat ${{ env.TEMPLATES_PATH }}/template_name`" >> $GITHUB_ENV
           echo "TEMPLATE_REPOSITORY=`cat ${{ env.TEMPLATES_PATH }}/template_repository`" >> $GITHUB_ENV
 
-
-      - uses: octokit/request-action@v2.x
-        id: get_repo_meta
-        with:
-          route: GET /repos/{owner}/{repo}
-          owner: ${{ env.NEW_ORG }}
-          repo: ${{ env.NEW_PROJECT }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Rename all cpp_starter_project occurrences to current repository and remove this workflow
       - name: Update repository to match new template information
