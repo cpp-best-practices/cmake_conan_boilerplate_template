@@ -116,4 +116,8 @@ ENV CXX=${USE_CLANG:+"clang++"}
 ENV CC=${CC:-"gcc"}
 ENV CXX=${CXX:-"g++"}
 
+# Include project
+#ADD . /workspaces/cpp_boilerplate_project
+#WORKDIR /workspaces/cpp_boilerplate_project
+
 CMD ["/bin/bash"]
