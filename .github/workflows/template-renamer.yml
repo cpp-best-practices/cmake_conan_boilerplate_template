@@ -87,7 +87,7 @@ jobs:
 
       - uses: EndBug/add-and-commit@v4
         # only commit and push if we are a template and project name has changed
-        if: fromJson(steps.get_repo_meta.outputs.data).is_template == true && ${{ env.TEST_RUN }} != "true"
+        if: fromJson(steps.get_repo_meta.outputs.data).is_template == true && env.TEST_RUN == false
         with:
           author_name: Template Janitor
           author_email: template.janitor@example.com
