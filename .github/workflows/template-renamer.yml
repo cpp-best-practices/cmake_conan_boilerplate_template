@@ -39,7 +39,7 @@ jobs:
           echo "TEST_RUN=true" >> $GITHUB_ENV
           echo "NEW_ORG=${{ github.repository_owner }}" >> $GITHUB_ENV
           echo "NEW_PROJECT=TEST_PROJECT" >> $GITHUB_ENV
-          echo "NEW_REPOSITORY=${{ TEST_REPOSITORY }}" >> $GITHUB_ENV
+          echo "NEW_REPOSITORY=TEST_REPOSITORY" >> $GITHUB_ENV
           echo "TEMPLATE_NAME=`cat ${{ env.TEMPLATES_PATH }}/template_name`" >> $GITHUB_ENV
           echo "TEMPLATE_REPOSITORY=`cat ${{ env.TEMPLATES_PATH }}/template_repository`" >> $GITHUB_ENV
 
