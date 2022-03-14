@@ -43,7 +43,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup fake test org/project names if project didn't change
-        if: ${{ env.TEMPLATE_NAME }} != ${{ env.NEW_PROJECT }}
+        if: env.TEMPLATE_NAME != env.NEW_PROJECT
         run: |
           echo "TEST_RUN=true" >> $GITHUB_ENV
           echo "NEW_ORG=${{ github.repository_owner }}" >> $GITHUB_ENV
