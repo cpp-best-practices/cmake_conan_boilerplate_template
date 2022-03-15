@@ -43,7 +43,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup fake test org/project names if project didn't change
-        if: env.TEMPLATE_NAME != env.NEW_PROJECT
+        if: env.TEMPLATE_NAME == env.NEW_PROJECT
         run: |
           echo "TEST_RUN=true" >> $GITHUB_ENV
           echo "NEW_ORG=${{ github.repository_owner }}" >> $GITHUB_ENV
@@ -87,7 +87,7 @@ jobs:
 
       - uses: EndBug/add-and-commit@v4
         # only commit and push if we are a template and project name has changed
-        if: fromJson(steps.get_repo_meta.outputs.data).is_template == true && env.TEST_RUN == false
+        if: fromJson(steps.get_repo_meta.outputs.data).is_template == true && env.TEST_RUN == 'false'
         with:
           author_name: Template Janitor
           author_email: template.janitor@example.com
