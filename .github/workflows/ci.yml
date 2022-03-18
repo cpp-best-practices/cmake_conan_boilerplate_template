@@ -99,7 +99,7 @@ jobs:
 
 
     steps:
-      - names: Pull and Cache
+      - name: Pull and Cache
         uses: ./.github/actions/pull_and_cache
         with:
           compiler: ${{ matrix.compiler }}
