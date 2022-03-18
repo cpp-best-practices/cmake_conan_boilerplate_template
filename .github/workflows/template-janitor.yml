@@ -24,8 +24,27 @@ jobs:
   template-cleanup:
     name: Cleanup after create
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        compiler:
+          - gcc-11
+        generator:
+          - "Ninja Multi-Config"
+        build_type:
+          - Debug
+        developer_mode:
+          - OFF
+
     steps:
       - uses: actions/checkout@v2
+
+      - name: Setup Cache
+        uses: ./.github/actions/setup_cache
+        with:
+          compiler: ${{ matrix.compiler }}
+          build_type: ${{ matrix.build_type }}
+          developer_mode: ${{ matrix.developer_mode }}
+          generator: ${{ matrix.generator }}
 
       - name: Get organization and project name 
         run: |
@@ -80,7 +99,7 @@ jobs:
       - name: Setup Cpp
         uses: aminya/setup-cpp@v1
         with:
-          compiler: gcc
+          compiler: ${{ matrix.compiler }}
 
           cmake: true
           ninja: false
@@ -95,9 +114,9 @@ jobs:
           opencppcoverage: false
 
 
-      - name: Test simple configuration to make sure nothing broke (default compiler,cmake,developer_mode OFF)
+      - name: Test simple configuration to make sure nothing broke
         run: |
-          cmake -S . -B ./build -DCMAKE_BUILD_TYPE:STRING=DEBUG -DENABLE_DEVELOPER_MODE:BOOL=OFF -DOPT_ENABLE_COVERAGE:BOOL=OFF
+          cmake -S . -B ./build -G ${{ matrix.generator }} -DCMAKE_BUILD_TYPE:STRING=${{ matrix.build_type }} -DENABLE_DEVELOPER_MODE:BOOL=${{ matrix.developer_mode }} -DOPT_ENABLE_COVERAGE:BOOL=OFF
 
 
       - uses: EndBug/add-and-commit@v4
@@ -115,10 +134,27 @@ jobs:
   template-rename:
     name: Renames template when a new name is detected
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        compiler:
+          - gcc-11
+        generator:
+          - "Ninja Multi-Config"
+        build_type:
+          - Debug
+        developer_mode:
+          - OFF
+
     steps:
       - uses: actions/checkout@v2
 
-
+      - name: Setup Cache
+        uses: ./.github/actions/setup_cache
+        with:
+          compiler: ${{ matrix.compiler }}
+          build_type: ${{ matrix.build_type }}
+          developer_mode: ${{ matrix.developer_mode }}
+          generator: ${{ matrix.generator }}
 
       - name: Get organization and project name 
         run: |
@@ -177,7 +213,7 @@ jobs:
 
       - name: Test simple configuration to make sure nothing broke (default compiler,cmake,developer_mode OFF)
         run: |
-          cmake -S . -B ./build -DCMAKE_BUILD_TYPE:STRING=DEBUG -DENABLE_DEVELOPER_MODE:BOOL=OFF -DOPT_ENABLE_COVERAGE:BOOL=OFF
+          cmake -S . -B ./build -G ${{ matrix.generator }} -DCMAKE_BUILD_TYPE:STRING=${{ matrix.build_type }} -DENABLE_DEVELOPER_MODE:BOOL=${{ matrix.developer_mode }} -DOPT_ENABLE_COVERAGE:BOOL=OFF
 
       - uses: EndBug/add-and-commit@v4
         # only commit and push if we are a template and project name has changed
