@@ -14,6 +14,9 @@ on:
 
 env:
   TEMPLATES_PATH: ".github/template"
+  CONAN_SYSREQUIRES_MODE: enabled
+  CONAN_USER_HOME: "${{ github.workspace }}/conan-cache"
+  CONAN_USER_HOME_SHORT: "${{ github.workspace }}/conan-cache/short"
 
 jobs:
 

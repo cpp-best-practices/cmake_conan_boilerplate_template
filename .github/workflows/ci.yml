@@ -10,7 +10,6 @@ on:
       - develop
 
 env:
-  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
   # Conan cache environment variables
   CONAN_SYSREQUIRES_MODE: enabled
   CONAN_USER_HOME: "${{ github.workspace }}/conan-cache"
