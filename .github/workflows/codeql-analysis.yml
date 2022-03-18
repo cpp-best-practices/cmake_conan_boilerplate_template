@@ -54,8 +54,10 @@ jobs:
 
 
     steps:
-    - name: Pull and Cache
-      uses: ./.github/actions/pull_and_cache
+    - uses: actions/checkout@v2
+
+    - name: Setup Cache
+      uses: ./.github/actions/setup_cache
       with:
         compiler: ${{ matrix.compiler }}
         build_type: ${{ matrix.build_type }}

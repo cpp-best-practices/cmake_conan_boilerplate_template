@@ -1,6 +1,6 @@
 
-name: 'pull_and_cache'
-description: 'pulls git, sets up cache'
+name: 'setup_cache'
+description: 'sets up the shared cache'
 inputs:
   inputs:
     compiler:
@@ -20,8 +20,6 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - uses: actions/checkout@v2
-
     - name: Cache
       uses: actions/cache@v2
       with:
