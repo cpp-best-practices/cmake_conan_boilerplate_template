@@ -25,6 +25,8 @@ jobs:
     name: Cleanup after create
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+
       - name: Get organization and project name 
         run: |
           echo "NEW_ORG=${{ github.repository_owner }}" >> $GITHUB_ENV
@@ -114,6 +116,10 @@ jobs:
     name: Renames template when a new name is detected
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+
+
+
       - name: Get organization and project name 
         run: |
           echo "TEST_RUN=false" >> $GITHUB_ENV
