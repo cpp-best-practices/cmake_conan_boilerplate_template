@@ -52,7 +52,7 @@
         {
             "name": "windows-msvc",
             "displayName": "msvc",
-            "description": "Target Windows with the msvc compiler, debug build type",
+            "description": "Target Windows with the msvc compiler",
             "inherits": "config-windows-common",
             "cacheVariables": {
                 "CMAKE_C_COMPILER": "cl",
@@ -68,7 +68,7 @@
         {
             "name": "windows-clang",
             "displayName": "clang",
-            "description": "Target Windows with the clang compiler, debug build type",
+            "description": "Target Windows with the clang compiler",
             "inherits": "config-windows-common",
             "cacheVariables": {
                 "CMAKE_C_COMPILER": "clang-cl",
@@ -87,7 +87,7 @@
         {
             "name": "linux-gcc",
             "displayName": "gcc",
-            "description": "Target Linux with the gcc compiler, debug build type",
+            "description": "Target Linux with the gcc compiler",
             "inherits": "config-linux-common",
             "cacheVariables": {
                 "CMAKE_C_COMPILER": "gcc",
@@ -98,7 +98,7 @@
         {
             "name": "linux-clang",
             "displayName": "clang",
-            "description": "Target Linux with the clang compiler, debug build type",
+            "description": "Target Linux with the clang compiler",
             "inherits": "config-linux-common",
             "cacheVariables": {
                 "CMAKE_C_COMPILER": "clang",
