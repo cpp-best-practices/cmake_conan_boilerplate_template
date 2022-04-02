@@ -242,7 +242,10 @@ If you run into difficulty using them, please refer to their documentation,
 linked here:
 
 - [NANA](http://nanapro.org/en-us/documentation/)
-- [SDL](http://wiki.libsdl.org/FrontPage)
+- [SDL](http://wiki.libsdl.org/FrontPage):
+  Please note that the Conan package for SDL can be challenging to build on some platforms.
+  If you need to use SDL, you may find it easier to install using the
+  [official instructions](http://wiki.libsdl.org/Installation) than to use the Conan package.
 - [IMGUI](https://github.com/ocornut/imgui/tree/master/docs):
   This framework depends on SFML, and if you are using Linux, you may need
   to install several of SFML's dependencies using your package manager. See
