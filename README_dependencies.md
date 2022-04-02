@@ -29,18 +29,23 @@ RefreshEnv.cmd # reload the environment
 ```
 
 ### Necessary Dependencies
-1. A C++ compiler that supports C++17.
+1. A C++ compiler that supports C++20.
 See [cppreference.com](https://en.cppreference.com/w/cpp/compiler_support)
 to see which features are supported by each compiler.
 The following compilers should work:
 
-  * [gcc 7+](https://gcc.gnu.org/)
+  * [gcc 11+](https://gcc.gnu.org/)
 	<details>
 	<summary>Install command</summary>
 
-	- Debian/Ubuntu:
+	- Ubuntu 21.04+:
 
-			sudo apt install build-essential
+			sudo apt install gcc-11
+
+	- Ubuntu 18.04-20.04:
+
+			sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test && sudo apt-get update -qq
+			sudo apt install gcc-11
 
 	- Windows:
 
@@ -51,7 +56,7 @@ The following compilers should work:
 			brew install gcc
 	</details>
 
-  * [clang 6+](https://clang.llvm.org/)
+  * [clang 13+](https://clang.llvm.org/)
 	<details>
 	<summary>Install command</summary>
 
@@ -107,9 +112,14 @@ The following compilers should work:
 	<details>
 	<summary>Install Command</summary>
 
-	- Via pip - https://docs.conan.io/en/latest/installation.html#install-with-pip-recommended
+	- Via pip (requires Python 3.5+) - https://docs.conan.io/en/latest/installation.html#install-with-pip-recommended
 
 			pip install --user conan
+
+	  Over time, you may need to upgrade Conan to maintain compatibility with the latest packages.
+	  You can do that with:
+
+			pip install --user --upgrade conan
 
 	- Windows:
 
@@ -121,13 +131,19 @@ The following compilers should work:
 
 	</details>
 
-3. [CMake 3.15+](https://cmake.org/)
+3. [CMake 3.18+](https://cmake.org/)
 	<details>
 	<summary>Install Command</summary>
 
-	- Debian/Ubuntu:
+    - All platforms (if you have Python installed):
 
-			sudo apt-get install cmake
+			pip install --user cmake
+
+    - Ubuntu 21.04 or later:
+
+            sudo apt-get install cmake cmake-curses-gui
+
+    - Ubuntu 16.04-20.04: Follow instructions at [Kitware](https://apt.kitware.com/)
 
 	- Windows:
 
