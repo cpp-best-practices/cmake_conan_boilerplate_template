@@ -155,7 +155,7 @@ The following compilers should work:
 
 	</details>
 
-### Optional Dependencies
+### Strongly Recommended (but optional) Dependencies
 #### C++ Tools
   * [Doxygen](http://doxygen.nl/)
 	<details>
