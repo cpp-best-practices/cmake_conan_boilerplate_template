@@ -2,9 +2,11 @@ name: Build/Publish Dockerfile
 on:
   push:
     paths:
+      - .github/workflows/publish-dockerfile.yml
       - docker
   pull_request:
     paths:
+      - .github/workflows/publish-dockerfile.yml
       - docker
   workflow_dispatch:
 
@@ -33,7 +35,8 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: .
+          file: ./docker/Dockerfile
+          context: ./docker
           push: ${{ github.ref == 'refs/heads/main' }}
           tags: |
             ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:latest
