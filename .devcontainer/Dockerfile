@@ -63,12 +63,15 @@ RUN update-alternatives --install /usr/bin/clang clang $(which clang-${LLVM_VER}
 RUN update-alternatives --install /usr/bin/clang++ clang++ $(which clang++-${LLVM_VER}) 100
 
 # Add current cmake/ccmake, from Kitware
-ARG CMAKE_URL="https://apt.kitware.com/ubuntu/"
-ARG CMAKE_PKG=${VARIANT}
+ENV KEYRING_FILE="/usr/share/keyrings/kitware-archive-keyring.gpg"
 RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null \
-        | gpg --dearmor - | tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null && \
-    apt-add-repository -y "deb ${CMAKE_URL} ${CMAKE_PKG} main" && \
-    apt-get update -qq && export DEBIAN_FRONTEND=noninteractive && \
+        | gpg --dearmor - | tee "${KEYRING_FILE}" >/dev/null && \
+    echo "deb [signed-by=${KEYRING_FILE}] https://apt.kitware.com/ubuntu/ ${VARIANT} main" \
+        | tee /etc/apt/sources.list.d/kitware.list >/dev/null && \
+    apt-get update && \
+    rm "${KEYRING_FILE}" && \
+    apt-get install kitware-archive-keyring && \
+    export DEBIAN_FRONTEND=noninteractive && \
     apt-get install -y --no-install-recommends cmake cmake-curses-gui
 
 # Install editors
