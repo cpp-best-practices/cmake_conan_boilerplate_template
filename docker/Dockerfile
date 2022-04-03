@@ -73,11 +73,6 @@ RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/nul
     export DEBIAN_FRONTEND=noninteractive && \
     apt-get install -y --no-install-recommends cmake cmake-curses-gui
 
-# Install editors
-RUN apt-get update -qq && export DEBIAN_FRONTEND=noninteractive && \
-    apt-get install -y --no-install-recommends \
-        neovim emacs nano
-
 # Install optional dependecies
 RUN apt-get update -qq && export DEBIAN_FRONTEND=noninteractive && \
     apt-get install -y --no-install-recommends \
@@ -121,9 +116,5 @@ ENV CXX=${CXX:-"g++"}
 # Check that all required programs have been installed. Fail if anything is missing.
 COPY print_versions.sh .
 RUN /bin/bash ./print_versions.sh
-
-# Include project
-#ADD . /workspaces/cpp_starter_project
-#WORKDIR /workspaces/cpp_starter_project
 
 CMD ["/bin/bash"]
