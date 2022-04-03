@@ -15,8 +15,7 @@ RUN apt-get update -qq && export DEBIAN_FRONTEND=noninteractive && \
 
 # Install conan and cmake format
 RUN python3 -m pip install --upgrade pip setuptools && \
-    python3 -m pip install conan cmake_format && \
-    conan --version
+    python3 -m pip install conan cmake_format
 
 # By default, anything you run in Docker is done as superuser.
 # Conan runs some install commands as superuser, and will prepend `sudo` to
@@ -118,6 +117,10 @@ ENV CXX=${USE_CLANG:+"clang++"}
 # if CC is null, set it to 'gcc' (or leave as is otherwise).
 ENV CC=${CC:-"gcc"}
 ENV CXX=${CXX:-"g++"}
+
+# Check that all required programs have been installed. Fail if anything is missing.
+COPY print_versions.sh .
+RUN /bin/bash ./print_versions.sh
 
 # Include project
 #ADD . /workspaces/cpp_starter_project
