@@ -25,6 +25,7 @@ ENV CONAN_SYSREQUIRES_SUDO 0
 # a few dependencies. This flag allows Conan to proceed with these installations;
 # leaving this flag undefined can cause some installation failures.
 ENV CONAN_SYSREQUIRES_MODE enabled
+ENV CONAN_REVISIONS_ENABLED 1
 
 # User-settable versions:
 # This Dockerfile should support gcc-[7, 8, 9, 10, 11] and clang-[10, 11, 12, 13]
@@ -40,7 +41,7 @@ RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
 RUN update-alternatives --install /usr/bin/gcc gcc $(which gcc-${GCC_VER}) 100
 RUN update-alternatives --install /usr/bin/g++ g++ $(which g++-${GCC_VER}) 100
 
-ARG LLVM_VER="13"
+ARG LLVM_VER="14"
 # Add clang-${LLVM_VER}
 ARG LLVM_URL="http://apt.llvm.org/${VARIANT}/"
 ARG LLVM_PKG="llvm-toolchain-${VARIANT}-${LLVM_VER}"
@@ -62,7 +63,7 @@ RUN update-alternatives --install /usr/bin/clang clang $(which clang-${LLVM_VER}
 RUN update-alternatives --install /usr/bin/clang++ clang++ $(which clang++-${LLVM_VER}) 100
 
 # Add current cmake/ccmake, from Kitware
-ENV KEYRING_FILE="/usr/share/keyrings/kitware-archive-keyring.gpg"
+ENV KEYRING_FILE "/usr/share/keyrings/kitware-archive-keyring.gpg"
 RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null \
         | gpg --dearmor - | tee "${KEYRING_FILE}" >/dev/null && \
     echo "deb [signed-by=${KEYRING_FILE}] https://apt.kitware.com/ubuntu/ ${VARIANT} main" \
