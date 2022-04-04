@@ -12,6 +12,7 @@ pip --version
 conan --version
 cmake --version
 ccmake --version
+cmake-format --version
 cppcheck --version
 doxygen --version
 include-what-you-use --version
