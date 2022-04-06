@@ -39,7 +39,7 @@
         },
         {
             "name": "config-unixlike-common",
-            "description": "Unix-like OS settings for gcc and clang toolchains",
+            "description": "Unixlike OS settings for gcc and clang toolchains",
             "hidden": true,
             "inherits": "config-common",
             "condition": {
@@ -118,7 +118,7 @@
         {
             "name": "unixlike-gcc",
             "displayName": "gcc",
-            "description": "Target unix-like OS with the gcc compiler",
+            "description": "Target unixlike OS with the gcc compiler",
             "inherits": [
                 "config-unixlike-common",
                 "config-gcc-compiler"
@@ -127,7 +127,7 @@
         {
             "name": "unixlike-clang",
             "displayName": "clang",
-            "description": "Target Unix-like OS with the clang compiler",
+            "description": "Target unixlike OS with the clang compiler",
             "inherits": [
                 "config-unixlike-common",
                 "config-clang-compiler"
@@ -136,20 +136,43 @@
     ],
     "buildPresets": [
         {
-            "name": "build-common-debug",
+            "name": "build-windows",
+            "description": "Windows common build settings",
+            "hidden": true,
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            }
+        },
+        {
+            "name": "build-unixlike",
+            "description": "Unixlike OS common build settings",
+            "hidden": true,
+            "condition": {
+                "type": "inList",
+                "string": "${hostSystemName}",
+                "list": [
+                    "Linux",
+                    "Darwin"
+                ]
+            }
+        },
+        {
+            "name": "build-debug",
             "description": "Set build type to Debug",
             "hidden": true,
             "configuration": "Debug"
         },
         {
-            "name": "build-common-release",
+            "name": "build-release",
             "description": "Set build type to Release",
             "hidden": true,
             "configuration": "Release"
         },
         {
             "name": "build-common-relwithdebinfo",
-            "description": "Set build type to Release",
+            "description": "Set build type to RelWithDebInfo",
             "hidden": true,
             "configuration": "RelWithDebInfo"
         },
@@ -163,42 +186,60 @@
             "name": "windows-msvc-debug",
             "displayName": "Debug",
             "description": "Build msvc debug on windows",
-            "inherits": "build-common-debug",
+            "inherits": [
+                "build-windows",
+                "build-debug"
+            ],
             "configurePreset": "windows-msvc"
         },
         {
-            "name": "build-windows-msvc-release",
+            "name": "windows-msvc-release",
             "displayName": "Release",
             "description": "Build msvc release on windows",
-            "inherits": "build-common-release",
+            "inherits": [
+                "build-windows",
+                "build-release"
+            ],
             "configurePreset": "windows-msvc"
         },
         {
-            "name": "build-unixlike-gcc-debug",
+            "name": "unixlike-gcc-debug",
             "displayName": "Debug",
             "description": "Build gcc debug on unixlike OS",
-            "inherits": "build-common-debug",
+            "inherits": [
+                "build-unixlike",
+                "build-debug"
+            ],
             "configurePreset": "unixlike-gcc"
         },
         {
-            "name": "build-unixlike-gcc-release",
+            "name": "unixlike-gcc-release",
             "displayName": "Release",
             "description": "Build gcc release on unixlike OS",
-            "inherits": "build-common-release",
+            "inherits": [
+                "build-unixlike",
+                "build-release"
+            ],
             "configurePreset": "unixlike-gcc"
         },
         {
-            "name": "build-unixlike-clang-debug",
+            "name": "unixlike-clang-debug",
             "displayName": "Debug",
             "description": "Build clang debug on unixlike OS",
-            "inherits": "build-common-debug",
+            "inherits": [
+                "build-unixlike",
+                "build-debug"
+            ],
             "configurePreset": "unixlike-clang"
         },
         {
-            "name": "build-unixlike-clang-release",
+            "name": "unixlike-clang-release",
             "displayName": "Release",
             "description": "Build clang release on unixlike OS",
-            "inherits": "build-common-release",
+            "inherits": [
+                "build-unixlike",
+                "build-release"
+            ],
             "configurePreset": "unixlike-clang"
         }
     ],
@@ -216,73 +257,126 @@
             }
         },
         {
-            "name": "test-common-debug",
+            "name": "test-windows",
+            "description": "Windows common test settings",
+            "hidden": true,
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            }
+        },
+        {
+            "name": "test-unixlike",
+            "description": "Unixlike OS common test settings",
+            "hidden": true,
+            "condition": {
+                "type": "inList",
+                "string": "${hostSystemName}",
+                "list": [
+                    "Linux",
+                    "Darwin"
+                ]
+            }
+        },
+        {
+            "name": "test-debug",
             "description": "Test CMake settings that apply to debug configurations",
             "hidden": true,
-            "inherits": "test-common",
             "configuration": "Debug"
         },
         {
-            "name": "test-common-release",
+            "name": "test-release",
             "description": "Test CMake settings that apply to release configurations",
             "hidden": true,
-            "inherits": "test-common",
             "configuration": "Release"
         },
         {
-            "name": "test-windows-msvc-debug",
+            "name": "windows-msvc-debug",
             "displayName": "Debug",
             "description": "Set Strict rules for windows msvc debug tests",
-            "inherits": "test-common-debug",
+            "inherits": [
+                "test-common",
+                "test-windows",
+                "test-debug"
+            ],
             "configurePreset": "windows-msvc"
         },
         {
-            "name": "test-windows-msvc-release",
+            "name": "windows-msvc-release",
             "displayName": "Release",
             "description": "Set Strict rules for windows msvc release tests",
-            "inherits": "test-common-release",
+            "inherits": [
+                "test-common",
+                "test-windows",
+                "test-release"
+            ],
             "configurePreset": "windows-msvc"
         },
         {
-            "name": "test-windows-clang-debug",
+            "name": "windows-clang-debug",
             "displayName": "Debug",
             "description": "Set Strict rules for windows clang debug tests",
-            "inherits": "test-common-debug",
+            "inherits": [
+                "test-common",
+                "test-windows",
+                "test-debug"
+            ],
             "configurePreset": "windows-clang"
         },
         {
-            "name": "test-windows-clang-release",
+            "name": "windows-clang-release",
             "displayName": "Release",
             "description": "Set Strict rules for windows clang release tests",
-            "inherits": "test-common-release",
+            "inherits": [
+                "test-common",
+                "test-windows",
+                "test-release"
+            ],
             "configurePreset": "windows-clang"
         },
         {
-            "name": "test-unixlike-gcc-debug",
+            "name": "unixlike-gcc-debug",
             "displayName": "Debug",
             "description": "Set Strict rules for unixlike gcc debug tests",
-            "inherits": "test-common-debug",
+            "inherits": [
+                "test-common",
+                "test-unixlike",
+                "test-debug"
+            ],
             "configurePreset": "unixlike-gcc"
         },
         {
-            "name": "test-unixlike-gcc-release",
+            "name": "unixlike-gcc-release",
             "displayName": "Release",
             "description": "Set Strict rules for unixlike gcc release tests",
-            "inherits": "test-common-release",
+            "inherits": [
+                "test-common",
+                "test-unixlike",
+                "test-release"
+            ],
             "configurePreset": "unixlike-gcc"
         },
         {
-            "name": "test-unixlike-clang-debug",
+            "name": "unixlike-clang-debug",
             "displayName": "Debug",
             "description": "Set Strict rules for unixlike clang debug tests",
-            "inherits": "test-common-debug",
+            "inherits": [
+                "test-common",
+                "test-unixlike",
+                "test-debug"
+            ],
             "configurePreset": "unixlike-clang"
         },
         {
-            "name": "test-unixlike-clang-release",
+            "name": "unixlike-clang-release",
             "displayName": "Release",
             "description": "Set Strict rules for unixlike clang release tests",
-            "inherits": "test-common-release",
+            "inherits": [
+                "test-common",
+                "test-unixlike",
+                "test-release"
+            ],
             "configurePreset": "unixlike-clang"
         }
     ]
