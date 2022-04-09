@@ -49,6 +49,10 @@ The following compilers should work:
 
 	- Windows:
 
+		The most popular Windows port of `gcc` is `mingw`, which you can install with `choco`.
+		Please be aware that `mingw` is not officially supported by this project, owing to numerous 
+		longstanding bugs. Use it at your own risk.
+
 			choco install mingw -y
 
 	- MacOS:
