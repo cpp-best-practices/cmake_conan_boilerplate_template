@@ -140,10 +140,8 @@ jobs:
       - name: Setup Cache
         uses: ./.github/actions/setup_cache
         with:
-          compiler: ${{ matrix.compiler }}
-          build_type: ${{ matrix.build_type }}
-          developer_mode: ${{ matrix.developer_mode }}
-          generator: ${{ matrix.generator }}
+          configure_preset: ${{ matrix.configure_preset }}
+          build_preset: ${{ matrix.build_test_preset }}
 
       - name: Setup Cpp
         uses: aminya/setup-cpp@v1
