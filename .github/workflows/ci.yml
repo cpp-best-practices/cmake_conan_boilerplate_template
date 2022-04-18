@@ -12,6 +12,7 @@ on:
 env:
   # Conan cache environment variables
   CONAN_SYSREQUIRES_MODE: enabled
+  CONAN_REVISIONS_ENABLED: 1
   CONAN_USER_HOME: "${{ github.workspace }}/conan-cache"
   CONAN_USER_HOME_SHORT: "${{ github.workspace }}/conan-cache/short"
   CLANG_TIDY_VERSION: "13.0.0"
@@ -46,6 +47,32 @@ jobs:
         developer_mode:
           - ON
           - OFF
+        configure_preset:
+          - windows-msvc-dev
+          - windows-clang-dev
+          - unixlike-gcc-dev
+          - unixlike-clang-dev
+          - windows-msvc-usr
+          - windows-clang-usr
+          - unixlike-gcc-usr
+          - unixlike-clang-usr
+        build_test_preset:
+          - windows-msvc-dev-debug
+          - windows-msvc-dev-release
+          - windows-clang-dev-debug
+          - windows-clang-dev-release
+          - unixlike-gcc-dev-debug
+          - unixlike-gcc-dev-release
+          - unixlike-clang-dev-debug
+          - unixlike-clang-dev-release
+          - windows-msvc-usr-debug
+          - windows-msvc-usr-release
+          - windows-clang-usr-debug
+          - windows-clang-usr-release
+          - unixlike-gcc-usr-debug
+          - unixlike-gcc-usr-release
+          - unixlike-clang-usr-debug
+          - unixlike-clang-usr-release
 
         exclude:
           # mingw is determined by this author to be too buggy to support
@@ -179,7 +206,6 @@ jobs:
         with:
           files: |
             build/*-*${{ matrix.build_type }}*-*.*
-
 
       - name: Publish to codecov
         uses: codecov/codecov-action@v2
