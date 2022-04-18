@@ -249,7 +249,7 @@
             "configuration": "MinSizeRel"
         },
         {
-            "name": "windows-msvc-debug",
+            "name": "windows-msvc-dev-debug",
             "displayName": "Debug",
             "description": "Build msvc debug on windows",
             "inherits": [
@@ -259,7 +259,7 @@
             "configurePreset": "windows-msvc-dev"
         },
         {
-            "name": "windows-msvc-release",
+            "name": "windows-msvc-dev-release",
             "displayName": "Release",
             "description": "Build msvc release on windows",
             "inherits": [
@@ -269,7 +269,7 @@
             "configurePreset": "windows-msvc-dev"
         },
         {
-            "name": "windows-clang-debug",
+            "name": "windows-clang-dev-debug",
             "displayName": "Debug",
             "description": "Build clang debug on windows",
             "inherits": [
@@ -279,7 +279,7 @@
             "configurePreset": "windows-clang-dev"
         },
         {
-            "name": "windows-clang-release",
+            "name": "windows-clang-dev-release",
             "displayName": "Release",
             "description": "Build clang release on windows",
             "inherits": [
@@ -289,7 +289,7 @@
             "configurePreset": "windows-clang-dev"
         },
         {
-            "name": "unixlike-gcc-debug",
+            "name": "unixlike-gcc-dev-debug",
             "displayName": "Debug",
             "description": "Build gcc debug on unixlike OS",
             "inherits": [
@@ -299,7 +299,7 @@
             "configurePreset": "unixlike-gcc-dev"
         },
         {
-            "name": "unixlike-gcc-release",
+            "name": "unixlike-gcc-dev-release",
             "displayName": "Release",
             "description": "Build gcc release on unixlike OS",
             "inherits": [
@@ -309,7 +309,7 @@
             "configurePreset": "unixlike-gcc-dev"
         },
         {
-            "name": "unixlike-clang-debug",
+            "name": "unixlike-clang-dev-debug",
             "displayName": "Debug",
             "description": "Build clang debug on unixlike OS",
             "inherits": [
@@ -319,7 +319,7 @@
             "configurePreset": "unixlike-clang-dev"
         },
         {
-            "name": "unixlike-clang-release",
+            "name": "unixlike-clang-dev-release",
             "displayName": "Release",
             "description": "Build clang release on unixlike OS",
             "inherits": [
@@ -329,7 +329,7 @@
             "configurePreset": "unixlike-clang-dev"
         },
         {
-            "name": "windows-msvc-debug-usr",
+            "name": "windows-msvc-usr-debug",
             "displayName": "Debug",
             "description": "Build msvc debug on windows",
             "inherits": [
@@ -339,7 +339,7 @@
             "configurePreset": "windows-msvc-usr"
         },
         {
-            "name": "windows-msvc-release-usr",
+            "name": "windows-msvc-usr-release",
             "displayName": "Release",
             "description": "Build msvc release on windows",
             "inherits": [
@@ -349,7 +349,7 @@
             "configurePreset": "windows-msvc-usr"
         },
         {
-            "name": "windows-clang-debug-usr",
+            "name": "windows-clang-usr-debug",
             "displayName": "Debug",
             "description": "Build clang debug on windows",
             "inherits": [
@@ -359,7 +359,7 @@
             "configurePreset": "windows-clang-usr"
         },
         {
-            "name": "windows-clang-release-usr",
+            "name": "windows-clang-usr-release",
             "displayName": "Release",
             "description": "Build clang release on windows",
             "inherits": [
@@ -369,7 +369,7 @@
             "configurePreset": "windows-clang-usr"
         },
         {
-            "name": "unixlike-gcc-debug-usr",
+            "name": "unixlike-gcc-usr-debug",
             "displayName": "Debug",
             "description": "Build gcc debug on unixlike OS",
             "inherits": [
@@ -379,7 +379,7 @@
             "configurePreset": "unixlike-gcc-usr"
         },
         {
-            "name": "unixlike-gcc-release-usr",
+            "name": "unixlike-gcc-usr-release",
             "displayName": "Release",
             "description": "Build gcc release on unixlike OS",
             "inherits": [
@@ -389,7 +389,7 @@
             "configurePreset": "unixlike-gcc-usr"
         },
         {
-            "name": "unixlike-clang-debug-usr",
+            "name": "unixlike-clang-usr-debug",
             "displayName": "Debug",
             "description": "Build clang debug on unixlike OS",
             "inherits": [
@@ -399,7 +399,7 @@
             "configurePreset": "unixlike-clang-usr"
         },
         {
-            "name": "unixlike-clang-release-usr",
+            "name": "unixlike-clang-usr-release",
             "displayName": "Release",
             "description": "Build clang release on unixlike OS",
             "inherits": [
@@ -458,7 +458,7 @@
             "configuration": "Release"
         },
         {
-            "name": "windows-msvc-debug",
+            "name": "windows-msvc-dev-debug",
             "displayName": "Debug",
             "description": "Set Strict rules for windows msvc debug tests",
             "inherits": [
@@ -469,7 +469,7 @@
             "configurePreset": "windows-msvc-dev"
         },
         {
-            "name": "windows-msvc-release",
+            "name": "windows-msvc-dev-release",
             "displayName": "Release",
             "description": "Set Strict rules for windows msvc release tests",
             "inherits": [
@@ -480,7 +480,7 @@
             "configurePreset": "windows-msvc-dev"
         },
         {
-            "name": "windows-clang-debug",
+            "name": "windows-clang-dev-debug",
             "displayName": "Debug",
             "description": "Set Strict rules for windows clang debug tests",
             "inherits": [
@@ -491,7 +491,7 @@
             "configurePreset": "windows-clang-dev"
         },
         {
-            "name": "windows-clang-release",
+            "name": "windows-clang-dev-release",
             "displayName": "Release",
             "description": "Set Strict rules for windows clang release tests",
             "inherits": [
@@ -502,7 +502,7 @@
             "configurePreset": "windows-clang-dev"
         },
         {
-            "name": "unixlike-gcc-debug",
+            "name": "unixlike-gcc-dev-debug",
             "displayName": "Debug",
             "description": "Set Strict rules for unixlike gcc debug tests",
             "inherits": [
@@ -513,7 +513,7 @@
             "configurePreset": "unixlike-gcc-dev"
         },
         {
-            "name": "unixlike-gcc-release",
+            "name": "unixlike-gcc-dev-release",
             "displayName": "Release",
             "description": "Set Strict rules for unixlike gcc release tests",
             "inherits": [
@@ -524,7 +524,7 @@
             "configurePreset": "unixlike-gcc-dev"
         },
         {
-            "name": "unixlike-clang-debug",
+            "name": "unixlike-clang-dev-debug",
             "displayName": "Debug",
             "description": "Set Strict rules for unixlike clang debug tests",
             "inherits": [
@@ -535,7 +535,7 @@
             "configurePreset": "unixlike-clang-dev"
         },
         {
-            "name": "unixlike-clang-release",
+            "name": "unixlike-clang-dev-release",
             "displayName": "Release",
             "description": "Set Strict rules for unixlike clang release tests",
             "inherits": [
@@ -546,7 +546,7 @@
             "configurePreset": "unixlike-clang-dev"
         },
         {
-            "name": "windows-msvc-debug-usr",
+            "name": "windows-msvc-usr-debug",
             "displayName": "Debug",
             "description": "Set Strict rules for windows msvc debug tests",
             "inherits": [
@@ -557,7 +557,7 @@
             "configurePreset": "windows-msvc-usr"
         },
         {
-            "name": "windows-msvc-release-usr",
+            "name": "windows-msvc-usr-release",
             "displayName": "Release",
             "description": "Set Strict rules for windows msvc release tests",
             "inherits": [
@@ -568,7 +568,7 @@
             "configurePreset": "windows-msvc-usr"
         },
         {
-            "name": "windows-clang-debug-usr",
+            "name": "windows-clang-usr-debug",
             "displayName": "Debug",
             "description": "Set Strict rules for windows clang debug tests",
             "inherits": [
@@ -579,7 +579,7 @@
             "configurePreset": "windows-clang-usr"
         },
         {
-            "name": "windows-clang-release-usr",
+            "name": "windows-clang-usr-release",
             "displayName": "Release",
             "description": "Set Strict rules for windows clang release tests",
             "inherits": [
@@ -590,7 +590,7 @@
             "configurePreset": "windows-clang-usr"
         },
         {
-            "name": "unixlike-gcc-debug-usr",
+            "name": "unixlike-gcc-usr-debug",
             "displayName": "Debug",
             "description": "Set Strict rules for unixlike gcc debug tests",
             "inherits": [
@@ -601,7 +601,7 @@
             "configurePreset": "unixlike-gcc-usr"
         },
         {
-            "name": "unixlike-gcc-release-usr",
+            "name": "unixlike-gcc-usr-release",
             "displayName": "Release",
             "description": "Set Strict rules for unixlike gcc release tests",
             "inherits": [
@@ -612,7 +612,7 @@
             "configurePreset": "unixlike-gcc-usr"
         },
         {
-            "name": "unixlike-clang-debug-usr",
+            "name": "unixlike-clang-usr-debug",
             "displayName": "Debug",
             "description": "Set Strict rules for unixlike clang debug tests",
             "inherits": [
@@ -623,7 +623,7 @@
             "configurePreset": "unixlike-clang-usr"
         },
         {
-            "name": "unixlike-clang-release-usr",
+            "name": "unixlike-clang-usr-release",
             "displayName": "Release",
             "description": "Set Strict rules for unixlike clang release tests",
             "inherits": [
