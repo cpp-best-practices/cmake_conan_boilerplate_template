@@ -39,7 +39,7 @@ jobs:
           - windows-2019
         compiler:
           # you can specify the version after `-` like "llvm-13.0.0".
-          - llvm-${{ env.CLANG_VERSION }}
+          - llvm-${CLANG_VERSION}
           - gcc-11
         generator:
           - "Ninja Multi-Config"
@@ -61,7 +61,7 @@ jobs:
           # if you try to use a compiler that does not have gcov set
           - compiler: gcc-11
             gcov_executable: gcov
-          - compiler: llvm-${{ env.CLANG_VERSION }}
+          - compiler: llvm-${CLANG_VERSION}
             gcov_executable: "llvm-cov gcov"
 
 
@@ -126,7 +126,7 @@ jobs:
           conan: true
           vcpkg: false
           ccache: true
-          clangtidy: ${{ env.CLANG_VERSION }}
+          clangtidy: ${CLANG_VERSION}
 
           cppcheck: true
 
