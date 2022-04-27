@@ -52,9 +52,6 @@ jobs:
             compiler: gcc-11
 
         include:
-          # Specify version of clang-tidy to use
-          - clang_tidy_version: 13.0.0
-
 
           # Add appropriate variables for gcov version required. This will intentionally break
           # if you try to use a compiler that does not have gcov set
@@ -99,6 +96,9 @@ jobs:
             developer_mode: Off
             package_generator: ZIP
 
+
+          # Specify version of clang-tidy to use
+          - clang_tidy_version: 13.0.0
 
 
 
