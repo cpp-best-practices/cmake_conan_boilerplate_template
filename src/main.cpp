@@ -19,8 +19,15 @@ int main(int argc, const char **argv)
 
     std::optional<std::string> message;
     app.add_option("-m,--message", message, "A message to print back out");
+    bool show_version = false;
+    app.add_flag("--version", show_version, "Show version information");
 
     CLI11_PARSE(app, argc, argv);
+
+    if (show_version) {
+      fmt::print("{}\n", myproject::cmake::project_version);
+      return EXIT_SUCCESS;
+    }
 
     // Use the default logger (stdout, multi-threaded, colored)
     spdlog::info("Hello, {}!", "World");
