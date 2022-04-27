@@ -14,6 +14,7 @@ env:
   CONAN_SYSREQUIRES_MODE: enabled
   CONAN_USER_HOME: "${{ github.workspace }}/conan-cache"
   CONAN_USER_HOME_SHORT: "${{ github.workspace }}/conan-cache/short"
+  CLANG_TIDY_VERSION: "14.0.0"
 
 jobs:
   Test:
@@ -52,14 +53,12 @@ jobs:
             compiler: gcc-11
 
         include:
-
           # Add appropriate variables for gcov version required. This will intentionally break
           # if you try to use a compiler that does not have gcov set
           - compiler: gcc-11
             gcov_executable: gcov
           - compiler: llvm-13.0.0
             gcov_executable: "llvm-cov gcov"
-
 
           # Set up preferred package generators, for given build configurations
           - build_type: Release
@@ -74,21 +73,25 @@ jobs:
             gcov_executable: gcov
             developer_mode: On
 
+          # Windows msvc builds
           - os: windows-2022
             compiler: msvc
             generator: "Visual Studio 17 2022"
             build_type: Debug
             developer_mode: On
+
           - os: windows-2022
             compiler: msvc
             generator: "Visual Studio 17 2022"
             build_type: Release
             developer_mode: On
+
           - os: windows-2022
             compiler: msvc
             generator: "Visual Studio 17 2022"
             build_type: Debug
             developer_mode: Off
+
           - os: windows-2022
             compiler: msvc
             generator: "Visual Studio 17 2022"
@@ -98,6 +101,13 @@ jobs:
 
 
     steps:
+      - name: Check for llvm version mismatches
+        if: contains(${{ matrix.compiler }}, 'llvm') && !contains(${{matrix.compiler}}, ${{ env.CLANG_TIDY_VERSION}})
+        uses: actions/github-script@v3
+        with:
+          script: |
+          core.setFailed('There is a mismatch between configured llvm compiler and clang-tidy version chosen')
+
       - uses: actions/checkout@v2
 
       - name: Setup Cache
@@ -119,7 +129,7 @@ jobs:
           conan: true
           vcpkg: false
           ccache: true
-          clangtidy: 13.0.0
+          clangtidy: ${{ env.CLANG_TIDY_VERSION }}
 
 
           cppcheck: true
