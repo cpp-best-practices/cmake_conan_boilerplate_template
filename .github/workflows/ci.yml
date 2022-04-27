@@ -102,7 +102,7 @@ jobs:
 
     steps:
       - name: Check for llvm version mismatches
-        if: contains(${{ matrix.compiler }}, 'llvm') && !contains(${{matrix.compiler}}, ${{ env.CLANG_TIDY_VERSION}})
+        if: ${{ contains(matrix.compiler, 'llvm') && !contains(matrix.compiler, env.CLANG_TIDY_VERSION) }}
         uses: actions/github-script@v3
         with:
           script: |
