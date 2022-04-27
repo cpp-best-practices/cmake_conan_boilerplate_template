@@ -16,7 +16,7 @@ env:
   CONAN_USER_HOME_SHORT: "${{ github.workspace }}/conan-cache/short"
 
   # Specify version of clang-tidy to use
-  CLANG_VERSION: 13.0.0
+  CLANG_VERSION: "13.0.0"
 
 
 jobs:
@@ -39,7 +39,7 @@ jobs:
           - windows-2019
         compiler:
           # you can specify the version after `-` like "llvm-13.0.0".
-          - llvm-${CLANG_VERSION}
+          - llvm-${{env.CLANG_VERSION}}
           - gcc-11
         generator:
           - "Ninja Multi-Config"
@@ -61,7 +61,7 @@ jobs:
           # if you try to use a compiler that does not have gcov set
           - compiler: gcc-11
             gcov_executable: gcov
-          - compiler: llvm-${CLANG_VERSION}
+          - compiler: llvm-${{env.CLANG_VERSION}}
             gcov_executable: "llvm-cov gcov"
 
 
@@ -126,7 +126,8 @@ jobs:
           conan: true
           vcpkg: false
           ccache: true
-          clangtidy: ${CLANG_VERSION}
+          clangtidy: ${{env.CLANG_VERSION}}
+
 
           cppcheck: true
 
