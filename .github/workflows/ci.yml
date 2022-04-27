@@ -45,9 +45,6 @@ jobs:
         developer_mode:
           - ON
           - OFF
-        clang_tidy:
-          - 13.0.0
-
 
         exclude:
           # mingw is determined by this author to be too buggy to support
@@ -100,9 +97,6 @@ jobs:
             package_generator: ZIP
 
 
-
-
-
     steps:
       - uses: actions/checkout@v2
 
@@ -125,7 +119,7 @@ jobs:
           conan: true
           vcpkg: false
           ccache: true
-          clangtidy: ${{ matrix.clang_tidy }}
+          clangtidy: 13.0.0
 
 
           cppcheck: true
