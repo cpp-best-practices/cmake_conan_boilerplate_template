@@ -53,7 +53,7 @@ jobs:
 
         include:
           # Specify version of clang-tidy to use
-          - clang_tidy_version: llvm-13.0.0
+          - clang_tidy_version: 13.0.0
 
 
           # Add appropriate variables for gcov version required. This will intentionally break
