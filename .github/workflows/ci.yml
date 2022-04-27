@@ -52,12 +52,17 @@ jobs:
             compiler: gcc-11
 
         include:
+          # Specify version of clang-tidy to use
+          - clang_tidy_version: llvm-13.0.0
+
+
           # Add appropriate variables for gcov version required. This will intentionally break
           # if you try to use a compiler that does not have gcov set
           - compiler: gcc-11
             gcov_executable: gcov
           - compiler: llvm-13.0.0
             gcov_executable: "llvm-cov gcov"
+
 
           # Set up preferred package generators, for given build configurations
           - build_type: Release
@@ -120,7 +125,7 @@ jobs:
           conan: true
           vcpkg: false
           ccache: true
-          clangtidy: true
+          clangtidy: ${{ matrix.clang_tidy_version }}
 
           cppcheck: true
 
