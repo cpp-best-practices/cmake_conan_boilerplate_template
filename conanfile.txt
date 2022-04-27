@@ -2,7 +2,7 @@
 
 [requires]
 catch2/2.13.8
-docopt.cpp/0.6.3
+cli11/2.2.0
 spdlog/1.9.2
 
 [generators]
