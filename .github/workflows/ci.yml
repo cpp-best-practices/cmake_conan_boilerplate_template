@@ -106,7 +106,7 @@ jobs:
         uses: actions/github-script@v3
         with:
           script: |
-          core.setFailed('There is a mismatch between configured llvm compiler and clang-tidy version chosen')
+            core.setFailed('There is a mismatch between configured llvm compiler and clang-tidy version chosen')
 
       - uses: actions/checkout@v2
 
