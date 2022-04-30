@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16...3.23)
+cmake_minimum_required(VERSION 3.18...3.23)
 
 # Not ideal to use this global variable, but necessary to make sure
 # that tooling and projects use the same version
@@ -103,7 +103,7 @@ dynamic_project_options(
   PCH_HEADERS
   <vector>
   <string> # This is a list of headers to pre-compile, here are some common ones
-  ENABLE_CONAN
+  ENABLE_CONAN       # Use Conan for package management
   # CONAN_OPTIONS    # Extra options to pass to conan
   # MSVC_WARNINGS    # Override the defaults for the MSVC warnings
   # CLANG_WARNINGS   # Override the defaults for the CLANG warnings
