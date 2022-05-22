@@ -94,10 +94,22 @@ With Cmake directly:
 
 Cmake will automatically create the `./build` folder if it does not exist, and it wil configure the project.
 
-Instead, if you have CMake version 3.21+, you can use one of the configuration presets that are listed in the CmakePresets.json file.
+Instead, if you have CMake version 3.21+, you can use one of the configuration presets that are listed in the CMakePresets.json file.
 
-    cmake . --preset <configure-preset>
-    cmake --build
+    cmake . --list-presets=all
+
+Given that list you can configure, build and test the project with the following commands.
+
+    cmake -S . --preset=<config-preset-name>
+    cmake --build --preset=<build-preset-name>
+	ctest --build --preset=<test-preset-name>
+
+where the possible values of the configure, build and test preset names can be found in the CMakePresets.json and CMakeUserPresets.json files in the root folder.
+e.g. For a Linux system you can use:
+
+    cmake --preset=unixlike-gcc-usr
+    cmake --build --preset=unixlike-gcc-debug-usr
+    ctest --build --preset=unixlike-gcc-debug-usr
 
 #### (2.b) Configuring via ccmake:
 
