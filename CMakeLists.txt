@@ -4,6 +4,9 @@ cmake_minimum_required(VERSION 3.16...3.23)
 # that tooling and projects use the same version
 set(CMAKE_CXX_STANDARD 20)
 
+# Improve build parallelism of non-generated C, CXX 
+set(CMAKE_OPTIMIZE_DEPENDENCIES ON)
+
 # strongly encouraged to enable this globally to avoid conflicts between
 # -Wpedantic being enabled and -std=c++20 and -std=gnu++20 for example
 # when compiling with PCH enabled
