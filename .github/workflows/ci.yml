@@ -14,7 +14,7 @@ env:
   CONAN_SYSREQUIRES_MODE: enabled
   CONAN_USER_HOME: "${{ github.workspace }}/conan-cache"
   CONAN_USER_HOME_SHORT: "${{ github.workspace }}/conan-cache/short"
-  CLANG_TIDY_VERSION: "13.0.0"
+  CLANG_TIDY_VERSION: "15"
 
 jobs:
   Test:
@@ -31,13 +31,13 @@ jobs:
       # and your own projects needs
       matrix:
         os:
-          - ubuntu-20.04
+          - ubuntu-22.04
           - macos-10.15
           - windows-2019
         compiler:
-          # you can specify the version after `-` like "llvm-13.0.0".
-          - llvm-13.0.0
-          - gcc-11
+          # you can specify the version after `-` like "llvm-15".
+          - llvm-15
+          - gcc-12
         generator:
           - "Ninja Multi-Config"
         build_type:
@@ -50,14 +50,14 @@ jobs:
         exclude:
           # mingw is determined by this author to be too buggy to support
           - os: windows-2019
-            compiler: gcc-11
+            compiler: gcc-12
 
         include:
           # Add appropriate variables for gcov version required. This will intentionally break
           # if you try to use a compiler that does not have gcov set
-          - compiler: gcc-11
+          - compiler: gcc-12
             gcov_executable: gcov
-          - compiler: llvm-13.0.0
+          - compiler: llvm-15
             gcov_executable: "llvm-cov gcov"
 
           # Set up preferred package generators, for given build configurations
@@ -66,33 +66,33 @@ jobs:
             package_generator: TBZ2
 
           # This exists solely to make sure a non-multiconfig build works
-          - os: ubuntu-20.04
-            compiler: gcc-11
+          - os: ubuntu-22.04
+            compiler: gcc-12
             generator: "Unix Makefiles"
             build_type: Debug
             gcov_executable: gcov
             developer_mode: On
 
           # Windows msvc builds
-          - os: windows-2022
+          - os: windows-2019
             compiler: msvc
             generator: "Visual Studio 17 2022"
             build_type: Debug
             developer_mode: On
 
-          - os: windows-2022
+          - os: windows-2019
             compiler: msvc
             generator: "Visual Studio 17 2022"
             build_type: Release
             developer_mode: On
 
-          - os: windows-2022
+          - os: windows-2019
             compiler: msvc
             generator: "Visual Studio 17 2022"
             build_type: Debug
             developer_mode: Off
 
-          - os: windows-2022
+          - os: windows-2019
             compiler: msvc
             generator: "Visual Studio 17 2022"
             build_type: Release
