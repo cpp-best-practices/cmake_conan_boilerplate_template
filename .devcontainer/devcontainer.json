@@ -3,15 +3,15 @@
 {
 	"name": "C++",
 	"build": {
-		"dockerfile": "Dockerfile",
-		// Update 'VARIANT' to pick an Ubuntu OS version. Options: [bionic, focal]. Default: focal
-		// Update 'GCC_VER' to pick a gcc and g++ version. Options: [7, 8, 9, 10, 11]. Default: 11
-		// Update 'LLVM_VER' to pick clang version. Options: [10, 11, 12, 13]. Default: 13
+		"dockerfile": "Dockerfile"
+		// Update 'VARIANT' to pick an Ubuntu OS version. Options: [bionic, focal, jammy]. Default: jammy
+		// Update 'GCC_VER' to pick a gcc and g++ version. Options: [7, 8, 9, 10, 11, 12]. Default: 12
+		// Update 'LLVM_VER' to pick clang version. Options: [10, 11, 12, 13, 14, 15]. Default: 15
 		// Update 'USE_CLANG' to set clang as the default C and C++ compiler. Options: [1, null]. Default null
 		// "args": {
-		// 	"VARIANT": "focal",
-		// 	"GCC_VER": "11",
-		// 	"LLVM_VER": "13"
+		// 	"VARIANT": "jammy",
+		// 	"GCC_VER": "12",
+		// 	"LLVM_VER": "15"
 		// }
 	},
 	"runArgs": [
@@ -19,34 +19,40 @@
 		"--security-opt",
 		"seccomp=unconfined"
 	],
-	// Set *default* container specific settings.json values on container create.
-	"settings": {
-		"cmake.configureOnOpen": true,
-		"editor.formatOnSave": true
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Set *default* container specific settings.json values on container create.
+			"settings": {
+				"cmake.configureOnOpen": true,
+				"editor.formatOnSave": true
+			},
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"ms-vscode.cpptools",
+				"ms-vscode.cmake-tools",
+				"twxs.cmake",
+				"ms-vscode.cpptools-themes",
+				"cschlosser.doxdocgen",
+				"eamodio.gitlens",
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"mutantdino.resourcemonitor"
+			]
+		}
 	},
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"ms-vscode.cpptools",
-		"ms-vscode.cmake-tools",
-		"twxs.cmake",
-		"ms-vscode.cpptools-themes",
-		"cschlosser.doxdocgen",
-		"eamodio.gitlens",
-		"ms-python.python",
-		"ms-python.vscode-pylance",
-		"mutantdino.resourcemonitor"
-	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 	// Use 'postCreateCommand' to run commands after the container is created.
-	//"postCreateCommand": "uname -a",
+	// "postCreateCommand": "uname -a && gcc -v && clang -v",
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	//"remoteUser": "vscode",
 	"workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/${localWorkspaceFolderBasename},type=bind,consistency=delegated",
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 	"features": {
-		"git": "latest",
-		"git-lfs": "latest",
-		"powershell": "latest"
+		"ghcr.io/devcontainers/features/git:1": {},
+		"ghcr.io/devcontainers/features/git-lfs:1": {},
+		"ghcr.io/devcontainers/features/powershell:1": {}
 	}
 }

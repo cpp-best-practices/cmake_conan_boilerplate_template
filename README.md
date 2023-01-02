@@ -1,11 +1,11 @@
-# cmake_conan_boilerplate_template
+# cpp_boilerplate_project
 
-[![ci](https://github.com/cpp-best-practices/cmake_conan_boilerplate_template/actions/workflows/ci.yml/badge.svg)](https://github.com/cpp-best-practices/cmake_conan_boilerplate_template/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/cpp-best-practices/cmake_conan_boilerplate_template/branch/main/graph/badge.svg)](https://codecov.io/gh/cpp-best-practices/cmake_conan_boilerplate_template)
-[![Language grade: C++](https://img.shields.io/lgtm/grade/cpp/github/cpp-best-practices/cmake_conan_boilerplate_template)](https://lgtm.com/projects/g/cpp-best-practices/cmake_conan_boilerplate_template/context:cpp)
-[![CodeQL](https://github.com/cpp-best-practices/cmake_conan_boilerplate_template/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/cpp-best-practices/cmake_conan_boilerplate_template/actions/workflows/codeql-analysis.yml)
+[![ci](https://github.com/Jason5480/cpp_boilerplate_project/actions/workflows/ci.yml/badge.svg)](https://github.com/Jason5480/cpp_boilerplate_project/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/Jason5480/cpp_boilerplate_project/branch/main/graph/badge.svg)](https://codecov.io/gh/Jason5480/cpp_boilerplate_project)
+[![Language grade: C++](https://img.shields.io/lgtm/grade/cpp/github/Jason5480/cpp_boilerplate_project)](https://lgtm.com/projects/g/Jason5480/cpp_boilerplate_project/context:cpp)
+[![CodeQL](https://github.com/Jason5480/cpp_boilerplate_project/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Jason5480/cpp_boilerplate_project/actions/workflows/codeql-analysis.yml)
 
-## About cmake_conan_boilerplate_template
+## About cpp_boilerplate_project
 
 This is a C++ Best Practices GitHub template for getting up and running with C++ quickly.
 
@@ -36,7 +36,7 @@ Ths Boilerplate project will merge new features first, then they will be merged 
 
 ### Use the Github template
 First, click the green `Use this template` button near the top of this page.
-This will take you to Github's ['Generate Repository'](https://github.com/cpp-best-practices/cmake_conan_boilerplate_template/generate) page.
+This will take you to Github's ['Generate Repository'](https://github.com/Jason5480/cpp_boilerplate_project/generate) page.
 Fill in a repository name and short description, and click 'Create repository from template'.
 This will allow you to create a new repository in your Github account,
 prepopulated with the contents of this project.
