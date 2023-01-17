@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15...3.23)
+cmake_minimum_required(VERSION 3.16...3.25)
 
 project(CmakeConfigPackageTests LANGUAGES CXX)
 

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16...3.23)
+cmake_minimum_required(VERSION 3.16...3.25)
 
 # Not ideal to use this global variable, but necessary to make sure
 # that tooling and projects use the same version
@@ -19,6 +19,11 @@ set(ENABLE_DEVELOPER_MODE
 
 # Change this to false if you want to disable warnings_as_errors in developer mode
 set(OPT_WARNINGS_AS_ERRORS_DEVELOPER_DEFAULT TRUE)
+
+# fix DOWNLOAD_EXTRACT_TIMESTAMP warning in FetchContent
+if(CMAKE_VERSION VERSION_GREATER_EQUAL "3.24.0")
+  cmake_policy(SET CMP0135 NEW)
+endif()
 
 # Add project_options v0.20.0
 # https://github.com/cpp-best-practices/project_options
