@@ -1,7 +1,7 @@
 # Docs at https://docs.conan.io/en/latest/reference/conanfile_txt.html
 
 [requires]
-catch2/2.13.9
+catch2/3.3.0
 cli11/2.2.0
 spdlog/1.10.0
 
