@@ -3,7 +3,7 @@
 [requires]
 catch2/3.3.0
 cli11/2.2.0
-spdlog/1.10.0
+spdlog/1.11.0
 
 [generators]
 cmake_find_package_multi
