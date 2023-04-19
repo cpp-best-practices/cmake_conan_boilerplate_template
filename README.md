@@ -1,3 +1,10 @@
+# NOTE: This Project Is Archived
+
+All efforts to maintain "Best Practices" CMake templates are being merged into https://github.com/cpp-best-practices/cmake_template
+
+***Important*** the new cmake_template is simplified in many ways to make it more maintainable, and the goal will be to always keep it simple.
+
+
 # cmake_conan_boilerplate_template
 
 [![ci](https://github.com/cpp-best-practices/cmake_conan_boilerplate_template/actions/workflows/ci.yml/badge.svg)](https://github.com/cpp-best-practices/cmake_conan_boilerplate_template/actions/workflows/ci.yml)
