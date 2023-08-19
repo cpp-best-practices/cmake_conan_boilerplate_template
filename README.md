@@ -64,7 +64,7 @@ Now you can clone the project locally and get to work!
 
 ## Testing
 
-See [Catch2 tutorial](https://github.com/catchorg/Catch2/blob/master/docs/tutorial.md)
+See [Catch2 tutorial](https://github.com/catchorg/Catch2/blob/develop/docs/tutorial.md)
 
 ## Fuzz testing
 
